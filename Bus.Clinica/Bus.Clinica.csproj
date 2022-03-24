@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bus.Utilities\Bus.Utilities.csproj" />
+    <ProjectReference Include="..\Dat.Sql\Dat.Sql.csproj" />
+    <ProjectReference Include="..\Ent.Sql\Ent.Sql.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="objMedicosAD\" />
+  </ItemGroup>
+
+</Project>

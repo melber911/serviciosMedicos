@@ -1,0 +1,218 @@
+﻿
+@{
+    ViewBag.Title = "Gestión De Contratos";
+    string CFecha = string.Format("{0:dd/MM/yyyy}", DateTime.Today);
+    string FFecha = string.Format("{0:dd/MM/yyyy}", DateTime.Today);
+}
+
+<!-- Default box -->
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Gestión De Contratos</h3>
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <form id="frmGuardarUsuario" class="form-horizontal" role="form" method="post" action="">
+            <input id="iddirectohidden" type="hidden" />
+            <input id="idcompensacionhidden" type="hidden" />
+
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-auto bg-dark p-1 text-center" style="background-color:#82C534!important;">
+                        <h6>Nuevo Medicos</h6>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <div class="form-row" style="width:100%;">
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Médicos: </label>
+                        <div class="col-sm-10">
+                            <input id="txtMedicos" type="text" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="col-4 text-right">
+                        <button type="button" id="btnBuscarMedico"  class="btn btn-primary form-control">Buscar Medicos</button>
+                   </div>
+                </div>
+            </div>
+            <div class="form-row" style="width:100%;">
+                <div class="col-sm-8">
+                    <center>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-12 col-form-label">D. Contrato</label>
+                        </div>
+                    </center>
+                </div>
+             <div class="col-sm-2">
+                    <div class="col-16 text-md-right">
+                        <button id="ideditar" type="button" style="background-color:#82C534; padding-right:15%; padding-left:15%;" class="btn btn-success">Reporte</button>
+                    </div>
+             </div>
+            </div>
+            <div class="col-sm-8">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-2 col-form-label">Rta. Mensual </label>
+                        <div class="col-sm-10">
+                            <input id="idrentamensual" type="text" class="form-control" />
+                        </div>
+                   </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="form-group row">
+                    <label for=" " class="col-sm-2 col-form-label">Duracion </label>
+                    <div class="col-sm-10">
+                        <input id="idduracion" type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">     
+                <div class="col-sm-4">
+                  <div class="form-group row">
+                        <label for="" class="col-sm-4 col-form-label">Fecha Inicio: </label>
+                     <div class="col-sm-8">
+                    <input type="hidden" id="hdnStartDate" class="form-control" name="date1" />
+                        <div class="input-group date">
+                            <input type="text" class="form-control pull-right" id="txtStartDate" value="@CFecha">
+                            <div class="input-group-append" data-target="#txtStartDate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                      <div class="form-group row">
+                        <label for="" class="col-sm-4 col-form-label">Fecha Final: </label>
+                      <div class="col-sm-8">
+                          <input type="hidden" id="hdnEndDate" class="form-control" name="date2" />
+                        <div class="input-group date">
+                            <input type="text" class="form-control pull-right" id="txtEndDate" value="@FFecha">
+                            <div class="input-group-append" data-target="#txtEndDate" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm-2">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-7 col-form-label">Forma de Pago</label>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-5 col-form-label">Directo</label>
+                        <div class="col-sm-3">
+                            <input id="iddirecto" type="checkbox" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-8 col-form-label">Compensación </label>
+                        <div class="col-sm-3">
+                            <input id="idcompensacion" type="checkbox" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-14">
+                <div  class="col-10 text-right">
+                    <button id="idguardar" type="button" style="padding-right:3%; padding-left:3%;" class="btn btn-primary">Guardar</button>
+                </div>
+           </div>
+          
+        </form>
+        <!-- /.card-body style="background-color:#82C534" -->
+    </div>
+</div>
+<!-- /.Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <form method="post" encrypt="multipart/form-data">
+                <div class="modal-header">
+                    <h2 class="modal-title text-primary text-center"> Detalle de los Medicos</h2>
+                    <button type="button" class="close" data-dismis="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div style="padding-left:15%; padding-right:15%;padding-bottom:30px">
+                        <div class="row p-3 border-0">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        </div>
+                        <div class="form-row" style="padding-top:14px">
+                            <div class="form-group col-md-6">
+                                <label>Nombres</label>
+                                <input asp-for="Nombres" class="form-control" placeholder="Nombres"/>
+                                <span asp-validation-for="Nombres" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Apellidos</label>
+                                <input asp-for="Apellidos" class="form-control" placeholder="Apellidos"/>
+                                <span asp-validation-for="Apellidos" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label>Direccion</label>
+                            <input asp-for="Direccion" class="form-control" placeholder="Direccion"/>
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Telefono</label>
+                                    <input asp-for="Telefono" class="form-control" placeholder="Telefono"/>
+                                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                         <div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Estado</label>
+                                    <select asp-for="Estado" class="form-control">
+                                    <option value="true">Activo</option>
+                                    <option value="false">Inactivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Cerrar</button>
+                    <button type="submit" class="btn btn-success">Grabar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section styles{
+    <!-- DataTables -->
+    <link rel="stylesheet" href="@Url.Content("~/plugins/datatables-bs4/css/dataTables.bootstrap4.css")">
+    <link rel="stylesheet" href="@Url.Content("~/plugins/dateticker/datepicker3.css")">
+}
+@section scripts{
+    <!-- DataTables -->
+    <script src="@Url.Content("~/plugins/datatables/jquery.dataTables.js")"></script>
+    <script src="@Url.Content("~/plugins/datatables-bs4/js/dataTables.bootstrap4.js")"></script>
+    <script src="@Url.Content("~/plugins/dateticker/bootstrap-datepicker.js")"></script>
+     
+    <script src="@Url.Content("~/js/MedicosContratos.js")"></script>
+}
